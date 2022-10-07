@@ -1,0 +1,22 @@
+body{
+    background-color: lightseagreen;
+    padding: 0;
+}
+
+input,label,button{
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    
+}
+
+input{
+   width: 40%;
+   border-radius: 20px;
+   padding : 10px
+}
+
+button{
+    border-radius: 10px;
+    padding: 10px;
+}

@@ -2,6 +2,11 @@ let dob = document.querySelector("#dateOfBirth");
 let luckyNumber = document.querySelector("#luckyNumber");
 let submitBtn  = document.querySelector("#submit-btn");
 
+let outputDiv = document.querySelector("#output");
+
+function displayMessage(msg){
+    outputDiv.innerHTML = `<h2>${msg}</h2>`
+}
 
 function isBirthdayLucky(){
     let dateAsNum = parseInt(dob.value.replaceAll("-", "")) ;
@@ -15,15 +20,20 @@ function isBirthdayLucky(){
         dateAsNum = Math.trunc(dateAsNum / 10)  ;
     } 
 
-    console.log(sumOfDigits)
 
-    if(sumOfDigits % luckyNumber.value  === 0 ){
-        console.log(sumOfDigits % luckyNumber.value)
-        console.log("Your Birthday is lucky");
+    if(luckyNumber.value === ""  || dob.value === ""){
+        displayMessage("Enter both the field");
+    }
+    else if(luckyNumber.value <= 0 ){
+        displayMessage("Enter valid positive lucky number") ;
+    }
+    else if(sumOfDigits % luckyNumber.value  === 0 ){
+       // console.log(sumOfDigits % luckyNumber.value)
+        displayMessage("Your Birthday is lucky 🥳");
     }
     else{
-        console.log(sumOfDigits % luckyNumber.value)
-        console.log("Sorry your birthday is not lucky");
+        //console.log(sumOfDigits % luckyNumber.value)
+        displayMessage("Sorry your birthday is not lucky 😞");
     }
 
 
